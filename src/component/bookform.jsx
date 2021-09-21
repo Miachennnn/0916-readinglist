@@ -2,28 +2,30 @@ import { useContext, useState } from "react";
 import { BookContext } from "../context/BookContext";
 
 const BookFrom = () => {
-  const { addBook } = useContext(BookContext);
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  // dispatch({type:'xx',num:...})
+  const { books, dispatch } = useContext(BookContext);
+
+  const [detail, setDetail] = useState({ title: "", author: "" });
   const handleSubmit = e => {
     e.preventDefault();
-    addBook(title, author);
-    setTitle("");
-    setAuthor("");
+    // addBook(detail.title, detail.author);
+    dispatch({ type: "add", detail });
+    setDetail({ title: "", author: "" });
   };
+
   return (
     <form className="book-form" onSubmit={e => handleSubmit(e)}>
       <input
         type="text"
         placeholder="Title"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
+        value={detail.title}
+        onChange={e => setDetail({ ...detail, title: e.target.value })}
       ></input>
       <input
         type="text"
         placeholder="Author"
-        value={author}
-        onChange={e => setAuthor(e.target.value)}
+        value={detail.author}
+        onChange={e => setDetail({ ...detail, author: e.target.value })}
       ></input>
       <input type="submit" value="Add"></input>
     </form>
