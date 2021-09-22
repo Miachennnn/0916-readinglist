@@ -2,13 +2,11 @@ import { useContext, useState } from "react";
 import { BookContext } from "../context/BookContext";
 
 const BookFrom = () => {
-  // dispatch({type:'xx',num:...})
-  const { books, dispatch } = useContext(BookContext);
+  const { dispatch } = useContext(BookContext);
 
   const [detail, setDetail] = useState({ title: "", author: "" });
   const handleSubmit = e => {
     e.preventDefault();
-    // addBook(detail.title, detail.author);
     dispatch({ type: "add", detail });
     setDetail({ title: "", author: "" });
   };

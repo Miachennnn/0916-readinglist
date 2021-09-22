@@ -43,6 +43,7 @@ nav {
   background-color: rgba(255, 255, 255, 0.1);
 }
 .book-list ul {
+  cursor: pointer;
   padding: 0 15px;
   list-style: none;
 }
@@ -55,6 +56,10 @@ nav {
   border-radius: 5px;
   margin: 15px 0;
   background-color: rgba(255, 255, 255, 0.1);
+}
+.book-detail-n {
+  font-size: x-large;
+  font-weight: bold;
 }
 .book-detail-er {
   font-size: small;
